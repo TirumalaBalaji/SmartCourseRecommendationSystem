@@ -1,0 +1,145 @@
+
+# 📘 Smart Course Recommendation System
+
+An **intelligent course recommendation system** built with **Java, JDBC, MySQL, and Data Structures**.
+It suggests courses to students based on their completed courses and prerequisites using **graph traversal algorithms (BFS/DFS)**.
+
+---
+
+## 🚀 Features
+
+* 🔑 **User Authentication** – Student/Admin login.
+* 📚 **Course Management** – Add, view, and manage courses.
+* 🎯 **Recommendation Engine** – Suggests next courses using graph algorithms.
+* ⚡ **Data Structures Used:**
+
+  * Graph (Adjacency List) → Course prerequisites
+  * Queue & Stack → BFS/DFS traversals
+  * HashMap → Fast course lookup
+  * PriorityQueue → Ranking courses by difficulty/popularity
+* 🗄 **Database Integration (MySQL)** – Users, courses, enrollments, prerequisites.
+
+---
+
+## 🛠 Tech Stack
+
+* **Programming Language:** Java
+* **Database:** MySQL
+* **Libraries/Tools:** JDBC, Scanner (Java Console I/O)
+* **Data Structures:** Graph, Queue, Stack, HashMap, PriorityQueue
+
+---
+
+## 📂 Project Structure
+
+```
+SmartCourseRecommendationSystem/
+│── src/
+│   ├── Main.java
+│   ├── db/DBConnection.java
+│   ├── model/User.java
+│   ├── model/Course.java
+│   ├── service/UserService.java
+│   ├── service/CourseService.java
+│   ├── service/RecommendationService.java
+│   └── util/Graph.java
+│
+│── sql/
+│   └── schema.sql
+│
+│── README.md
+│── .gitignore
+```
+
+---
+
+## 🗄 Database Schema
+
+* **users(user\_id, name, email, password, role)**
+* **courses(course\_id, course\_name, description, difficulty)**
+* **enrollments(enroll\_id, user\_id, course\_id, status)**
+* **prerequisites(course\_id, prereq\_id)**
+
+👉 Sample dummy data is included in `sql/schema.sql`
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/<your-username>/SmartCourseRecommendationSystem.git
+cd SmartCourseRecommendationSystem
+```
+
+### 2. Import Database
+
+1. Open MySQL.
+2. Run the schema file:
+
+   ```bash
+   mysql -u root -p course_recommendation < sql/schema.sql
+   ```
+
+### 3. Configure Database Connection
+
+Update your DB credentials in:
+`src/db/DBConnection.java`
+
+```java
+private static final String URL = "jdbc:mysql://localhost:3306/course_recommendation";
+private static final String USER = "root";   // change if needed
+private static final String PASSWORD = "root"; // change if needed
+```
+
+### 4. Compile & Run
+
+```bash
+javac -d bin src/**/*.java
+java -cp bin Main
+```
+
+---
+
+## 🔑 Sample Login Credentials
+
+* **Admin** → `admin@example.com` / `admin123`
+* **Student** → `john@example.com` / `1234`
+
+---
+
+## 📌 Example Run
+
+```
+Enter email:
+john@example.com
+Enter password:
+1234
+Welcome John Doe (student)
+
+Available Courses:
+1 - Introduction to Programming
+2 - Data Structures
+3 - Algorithms
+...
+
+Enter completed course id: 1
+Recommended Next Courses: [2, 4]
+```
+
+---
+
+## 🎓 Learning Outcomes
+
+* Applied **OOP concepts in Java** (Encapsulation, Modular Design).
+* Designed and normalized **relational database schema**.
+* Implemented **graph-based recommendation engine**.
+* Strengthened knowledge of **JDBC & SQL integration**.
+
+---
+
+## 📎 Reference
+
+GitHub Repo: [Smart Course Recommendation System](https://github.com/<your-username>/SmartCourseRecommendationSystem)
+
